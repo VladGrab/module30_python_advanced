@@ -37,7 +37,7 @@ async def test_add_recipe():
                         "ingredients_list": "test, test_2",
                         "description": "just test",
                         "count_view": 0
-             }
+                        }
         )
         assert response.status_code == 200
         assert response.json() == {
