@@ -1,0 +1,21 @@
+1. POST method for Client:
+{
+    "name": "Vovan",
+    "surname": "Mohito",
+    "credit_card": "1231414123",
+    "car_number": "96958231"
+}
+
+2. POST method for Parking:
+{
+    "address": "Soviet 91",
+    "opened": 1,
+    "count_places": 10,
+    "count_available_places": 10
+}
+
+3. POST/DELETE method for Client_Parking:
+{
+    "client_id": 1,
+    "parking_id": 1
+}
