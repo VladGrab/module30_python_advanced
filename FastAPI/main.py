@@ -23,7 +23,6 @@ app = FastAPI()
 #     await session.close()
 #     await engine.dispose()
 #
-print('big bang_03')
 
 @app.get('/recipes/', response_model=List[schemas.BaseRecipe])
 async def recipes() -> List[models.Recipe]:
@@ -33,7 +32,7 @@ async def recipes() -> List[models.Recipe]:
     return res.scalars().all()
 
 @app.get('/recipes/{recipe_id:int}/', response_model=List[schemas.AllInfoRecipe])
-async def recipes(recipe_id: int) -> List[models.Recipe]:
+async def recipes_info(recipe_id: int) -> List[models.Recipe]:
     async with session.begin():
         query = select(models.Recipe).where(models.Recipe.id == recipe_id)
         res = await session.execute(query)
