@@ -1,15 +1,13 @@
 from typing import List
-
-
 from fastapi import FastAPI
 from sqlalchemy import update, desc
 from sqlalchemy.future import select
-
-import models
-import schemas
+from FastAPI import models
+from FastAPI import schemas
 from database import engine, session
 
 app = FastAPI()
+
 
 #
 # @app.on_event("startup")
