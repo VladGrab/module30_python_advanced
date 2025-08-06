@@ -39,4 +39,4 @@ jobs:
         mypy FastAPI
     - name: Test for FastAPI
       run: |
-        python FastAPI/test_main.py 
+        pytest FastAPI/test_main.py 
