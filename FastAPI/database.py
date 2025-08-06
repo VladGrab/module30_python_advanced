@@ -7,6 +7,6 @@ DATABASE_URL = "sqlite+aiosqlite:///./app.py.db"
 engine: AsyncEngine = create_async_engine(DATABASE_URL, echo=True)
 # expire_on_commit=False will prevent attributes from being expired
 # after commit.
-async_session = sessionmaker(bind=engine, class_=AsyncSession, autoflush=True, expire_on_commit=False)
+async_session = sessionmaker(bind=engine, class_=AsyncSession, expire_on_commit=False)
 session = async_session()
 Base = declarative_base()
