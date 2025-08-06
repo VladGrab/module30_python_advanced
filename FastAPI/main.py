@@ -14,11 +14,10 @@ app = FastAPI()
 async def recipes() -> List[models.Recipe]:
     async with session.begin():
         res = await session.execute(select(models.Recipe).order_by(desc(models.Recipe.count_view),
-                                                                models.Recipe.cooking_time))
+                                                                 models.Recipe.cooking_time))
     return res.scalars().all()
 
-@app.get('/recipes/{recipe_id:int}/',
-         response_model=List[schemas.AllInfoRecipe])
+@app.get('/recipes/{recipe_id:int}/', response_model=List[schemas.AllInfoRecipe])
 async def recipes_info(recipe_id: int) -> List[models.Recipe]:
     async with session.begin():
         query = select(models.Recipe).where(models.Recipe.id == recipe_id)
@@ -26,8 +25,8 @@ async def recipes_info(recipe_id: int) -> List[models.Recipe]:
         records = res.scalars().all()
         count_view_get: int = (records[0].count_view)
         query_update_count_view = (update(models.Recipe).
-                                  where(models.Recipe.id == recipe_id).
-                                  values(count_view=count_view_get + 1))
+                                       where(models.Recipe.id == recipe_id).
+                                       values(count_view=count_view_get + 1))
         await session.execute(query_update_count_view)
     return records
 
