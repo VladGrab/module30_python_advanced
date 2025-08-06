@@ -23,7 +23,7 @@ app = FastAPI()
 #     await session.close()
 #     await engine.dispose()
 #
-print('big bang')
+print('big bang_02')
 
 @app.get('/recipes/', response_model=List[schemas.BaseRecipe])
 async def recipes() -> List[models.Recipe]:
