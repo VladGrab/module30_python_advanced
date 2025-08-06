@@ -25,7 +25,7 @@ async def recipes_info(recipe_id: int) -> List[models.Recipe]:
         query = select(models.Recipe).where(models.Recipe.id == recipe_id)
         res = await session.execute(query)
         records = res.scalars().all()
-        count_view_get: int = (records[0].count_view)
+        count_view_get: int = records[0].count_view
         query_update_count_view = (update(models.Recipe).
                                    where(models.Recipe.id == recipe_id).
                                    values(count_view=count_view_get + 1))
