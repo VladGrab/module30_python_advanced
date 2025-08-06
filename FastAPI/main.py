@@ -15,7 +15,7 @@ async def recipes() -> List[models.Recipe]:
     async with session.begin():
         res = await session.execute(select(models.Recipe).order_by(desc(models.Recipe.count_view),
                                                                    models.Recipe.cooking_time))
-    return res.scalar().all()
+    return list(res.scalars().all())
 
 
 @app.get('/recipes/{recipe_id:int}/',
