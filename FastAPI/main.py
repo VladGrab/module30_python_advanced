@@ -2,14 +2,14 @@ from typing import List
 from fastapi import FastAPI
 from sqlalchemy import update, desc
 from sqlalchemy.future import select
-from FastAPI import models
-from FastAPI import schemas
+import models
+import schemas
 from database import engine, session
+
 
 app = FastAPI()
 
 
-#
 # @app.on_event("startup")
 # async def shutdown():
 #     async with engine.begin() as conn:
@@ -20,7 +20,7 @@ app = FastAPI()
 # async def shutdown():
 #     await session.close()
 #     await engine.dispose()
-#
+
 
 @app.get('/recipes/', response_model=List[schemas.BaseRecipe])
 async def recipes() -> List[models.Recipe]:
