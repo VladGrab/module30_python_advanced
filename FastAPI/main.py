@@ -1,6 +1,6 @@
 from typing import List
 from fastapi import FastAPI
-from sqlalchemy import update, desc
+from sqlalchemy import update, desc, Column
 from sqlalchemy.future import select
 import models
 import schemas
@@ -25,12 +25,12 @@ async def recipes_info(recipe_id: int) -> List[models.Recipe]:
         query = select(models.Recipe).where(models.Recipe.id == recipe_id)
         res = await session.execute(query)
         records = res.scalars().all()
-        count_view_get: int = records[0].count_view # (records[0].count_view)
+        count_view_get: Column[int] = records[0].count_view # (records[0].count_view)
         query_update_count_view = (update(models.Recipe).
                                    where(models.Recipe.id == recipe_id).
                                    values(count_view=count_view_get + 1))
         await session.execute(query_update_count_view)
-    return records
+    return list(records)
 
 
 @app.post('/recipes/', response_model=schemas.AllInfoRecipe)
