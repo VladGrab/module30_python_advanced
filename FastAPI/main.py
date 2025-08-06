@@ -29,7 +29,8 @@ async def recipes() -> List[models.Recipe]:
                                                                models.Recipe.cooking_time))
     return res.scalars().all()
 
-@app.get('/recipes/{recipe_id:int}/', response_model=List[schemas.AllInfoRecipe])
+@app.get('/recipes/{recipe_id:int}/',
+         response_model=List[schemas.AllInfoRecipe])
 async def recipes_info(recipe_id: int) -> List[models.Recipe]:
     async with session.begin():
         query = select(models.Recipe).where(models.Recipe.id == recipe_id)
