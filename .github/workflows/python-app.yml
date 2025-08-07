@@ -39,7 +39,7 @@ jobs:
         mypy FastAPI
     - name: Run black
       run: | 
-        black FastApi --check
+        black FastAPI --diff --check
     - name: Run Isort
       run: |
         isort FastAPI --check-only
