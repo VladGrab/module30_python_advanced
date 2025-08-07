@@ -1,5 +1,5 @@
 from sqlalchemy import Column, String, Integer
-from sqlalchemy.orm import  DeclarativeBase
+from sqlalchemy.orm import DeclarativeBase
 
 
 class Base(DeclarativeBase):
@@ -7,7 +7,7 @@ class Base(DeclarativeBase):
 
 
 class Recipe(Base):
-    __tablename__ = 'Recipe'
+    __tablename__ = "Recipe"
     id: Column[int] = Column(Integer, primary_key=True, index=True, autoincrement=True)
     name: Column[str] = Column(String)
     cooking_time: Column[int] = Column(Integer, default=0)
