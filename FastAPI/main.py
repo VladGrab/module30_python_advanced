@@ -35,7 +35,7 @@ async def recipes_info(recipe_id: int) -> List[models.Recipe]:
 
 @app.post('/recipes/', response_model=schemas.AllInfoRecipe)
 async def add_recipe(recipe: schemas.AllInfoRecipe) -> models.Recipe:
-    new_recipe = models.Recipe(**recipe.dict())
+    new_recipe = models.Recipe(**recipe.model_dump())
     async with session.begin():
         session.add(new_recipe)
     return new_recipe

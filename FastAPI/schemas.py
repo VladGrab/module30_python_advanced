@@ -7,7 +7,7 @@ class BaseRecipe(BaseModel):
     count_view: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 class AllInfoRecipe(BaseRecipe):
@@ -15,4 +15,4 @@ class AllInfoRecipe(BaseRecipe):
     description: str
 
     class Config:
-        orm_mode = True
+        from_attributes = True

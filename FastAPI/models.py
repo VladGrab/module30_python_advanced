@@ -1,7 +1,8 @@
 from sqlalchemy import Column, String, Integer
+from sqlalchemy.orm import declarative_base
 
-from database import Base
-
+# from database import Base
+Base = declarative_base()
 
 class Recipe(Base):
     __tablename__ = 'Recipe'
