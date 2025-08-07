@@ -1,8 +1,10 @@
+from typing import Any
+
 from sqlalchemy import Column, String, Integer
-# from sqlalchemy.orm import declarative_base
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import declarative_base
+# from sqlalchemy.ext.declarative import declarative_base
 # from database import Base
-Base = declarative_base()
+Base: Any  = declarative_base()
 
 class Recipe(Base):
     __tablename__ = 'Recipe'
