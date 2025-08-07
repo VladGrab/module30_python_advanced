@@ -9,6 +9,7 @@ from database import session
 
 app = FastAPI()
 
+
 @app.get('/recipes/', response_model=List[schemas.BaseRecipe])
 async def recipes() -> List[models.Recipe]:
     async with session.begin():
