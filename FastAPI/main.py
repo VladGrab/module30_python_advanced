@@ -21,18 +21,18 @@ async def recipes() -> List[models.Recipe]:
     return list(res.scalars().all())
 
 
-@app.get("/recipes/{recipe_id:int}/",
-         response_model=List[schemas.AllInfoRecipe])
+@app.get("/recipes/{recipe_id:int}/", response_model=List[schemas.AllInfoRecipe])
 async def recipes_info(recipe_id: int) -> List[models.Recipe]:
     async with session.begin():
         query = select(models.Recipe).where(models.Recipe.id == recipe_id)
         res = await session.execute(query)
         records = res.scalars().all()
-        count_view_get: Column[int] = records[0].count_view  #(records[0].count_view)
+        count_view_get: Column[int] = records[0].count_view  # (records[0].count_view)
         query_update_count_view = (
             update(models.Recipe)
             .where(models.Recipe.id == recipe_id)
-            .values(count_view=count_view_get + 1))
+            .values(count_view=count_view_get + 1)
+        )
         await session.execute(query_update_count_view)
     return list(records)
 
