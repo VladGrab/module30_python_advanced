@@ -45,5 +45,5 @@ async def test_add_recipe():
             "cooking_time": 40,
             "ingredients_list": "test, test_2",
             "description": "just test",
-            "count_view": 0
+            "count_view": 0,
         }

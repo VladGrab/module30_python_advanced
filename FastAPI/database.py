@@ -2,7 +2,7 @@ from sqlalchemy.ext.asyncio import (
     create_async_engine,
     AsyncSession,
     AsyncEngine,
-    async_sessionmaker
+    async_sessionmaker,
 )
 
 
