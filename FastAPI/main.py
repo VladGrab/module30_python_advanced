@@ -1,9 +1,7 @@
 from typing import List
-
 from fastapi import FastAPI
 from sqlalchemy import Column, desc, update
 from sqlalchemy.future import select
-
 import models
 import schemas
 from database import session
