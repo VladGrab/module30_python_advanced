@@ -42,7 +42,7 @@ jobs:
         black FastAPI --diff --check
     - name: Run Isort
       run: |
-        isort FastAPI --check-only
+        isort FastAPI --check-only --diff
     - name: Test for FastAPI
       run: |
         pytest FastAPI/test_main.py 
