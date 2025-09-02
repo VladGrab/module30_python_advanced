@@ -8,6 +8,7 @@ import models
 import schemas
 from database import session
 
+
 app = FastAPI()
 
 
