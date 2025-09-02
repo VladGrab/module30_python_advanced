@@ -7,7 +7,6 @@ from sqlalchemy import Column, desc, update
 from sqlalchemy.future import select
 
 
-
 app = FastAPI()
 
 
