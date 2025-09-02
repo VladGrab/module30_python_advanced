@@ -16,3 +16,4 @@ class AllInfoRecipe(BaseRecipe):
 
     class Config:
         from_attributes = True
+
