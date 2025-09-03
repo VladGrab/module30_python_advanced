@@ -1,5 +1,9 @@
+import asyncio
+
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import DeclarativeBase
+
+from FastAPI.database import engine
 
 
 class Base(DeclarativeBase):
@@ -14,3 +18,10 @@ class Recipe(Base):
     ingredients_list: Column[str] = Column(String)
     description: Column[str] = Column(String)
     count_view: Column[int] = Column(Integer, default=0)
+
+
+async def create_tables():
+    async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.create_all)
+
+asyncio.run(create_tables())
