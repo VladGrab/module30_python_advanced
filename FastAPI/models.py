@@ -1,9 +1,9 @@
 import asyncio
 
+from database import engine
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import DeclarativeBase
 
-from FastAPI.database import engine
 
 
 class Base(DeclarativeBase):
