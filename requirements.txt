@@ -5,6 +5,7 @@ flake8-pie==0.15.0
 isort==5.9.3
 mypy==1.17.1
 pytest==7.0.1
+pytest-asyncio==1.1.0
 pydantic==2.11.7
 fastapi==0.116.1
 sqlalchemy==2.0.42
