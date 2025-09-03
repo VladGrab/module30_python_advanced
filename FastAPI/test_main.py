@@ -14,6 +14,7 @@ def test_num():
 def anyio_backend():
     return "asyncio"
 
+# @pytest.fixture(scope="session")
 @pytest.mark.asyncio
 async def test_get_all_recipes_01():
     async with AsyncClient(
