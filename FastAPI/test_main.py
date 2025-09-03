@@ -6,6 +6,10 @@ from main import app
 client = TestClient(app)
 
 
+def test_num():
+    num = 4
+    assert num == 4
+
 @pytest.fixture
 def anyio_backend():
     return "asyncio"
