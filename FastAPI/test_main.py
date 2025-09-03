@@ -14,25 +14,6 @@ def test_num():
 def anyio_backend():
     return "asyncio"
 
-# @pytest.fixture(scope="session")
-@pytest.mark.asyncio
-async def test_get_all_recipes_01():
-    async with AsyncClient(
-        transport=ASGITransport(app=app), base_url="http://127.0.0.1:8000"
-    ) as ac:
-        response = await ac.get("/recipes/")
-    assert response.status_code == 200
-
-# @pytest.fixture(scope="session")
-@pytest.mark.anyio
-async def test_get_all_recipes():
-    async with AsyncClient(
-        transport=ASGITransport(app=app), base_url="http://127.0.0.1:8000"
-    ) as ac:
-        response = await ac.get("/recipes/")
-    assert response.status_code == 200
-
-
 @pytest.mark.anyio
 # @pytest.fixture(scope="session")
 async def test_add_recipe():
@@ -58,3 +39,23 @@ async def test_add_recipe():
             "description": "just test",
             "count_view": 0,
         }
+
+# @pytest.fixture(scope="session")
+@pytest.mark.asyncio
+async def test_get_all_recipes_01():
+    async with AsyncClient(
+        transport=ASGITransport(app=app), base_url="http://127.0.0.1:8000"
+    ) as ac:
+        response = await ac.get("/recipes/")
+    assert response.status_code == 200
+
+# @pytest.fixture(scope="session")
+@pytest.mark.anyio
+async def test_get_all_recipes():
+    async with AsyncClient(
+        transport=ASGITransport(app=app), base_url="http://127.0.0.1:8000"
+    ) as ac:
+        response = await ac.get("/recipes/")
+    assert response.status_code == 200
+
+
